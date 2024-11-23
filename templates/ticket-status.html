@@ -213,19 +213,18 @@
                                         <div class="status">
                                             <div class="status-info">
                                                 <h3><b>Consultation Room 1</b></h3>
-                                                <h3>Now serving</h3>
-                                                <h2>
-                                                    {% if current_ticket %}
-                                                        {{ current_ticket[3] }} <!-- Display the ticket_number -->
-                                                        <p>Position in Queue: {{ position }}</p> <!-- Display the position in queue -->
-                                                    {% else %}
-                                                        No tickets available
-                                                    {% endif %}
-                                                </h2>
-                                            <div class="status-report">
-                                                <div class="queue">
-                                                    <h2> Your Ticket Number: {{ ticket_number }}</h2>
-                                                    <h2>People in front of you: <span id="position">{{ position }}</span></h2>
+<h3>Now serving</h3>
+<h2>
+    {% if current_ticket %}
+        {{ current_ticket[3] }} <!-- Display the ticket_number -->
+        <p>Position in Queue: {{ position }}</p> <!-- Display the position in queue -->
+    {% else %}
+        No tickets available
+    {% endif %}
+</h2>
+<p>People in front of you: <span id="people-in-front">{{ position }}</span></p>
+<p>Current Time: {{ current_time }}</p>
+
                                                 </div>
                                                 
                                             </div>

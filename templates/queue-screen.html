@@ -50,19 +50,14 @@
                                             </div>
                                             
                                             <div class="screen-button">
-                                                <div class="screen-button">
-                                                    <form action="/process_ticket"  method="POST">
-                                                        <button type="submit" class="buttonish3">Done</button>
-                                                    </form> 
-                                                    {% if current_ticket and current_ticket[0] is not none %}
-                                                    <form action="{{ url_for('skip_ticket', id=current_ticket[0]) }}" method="post">
-                                                        <button class="buttonish3" role="button">Skip</button>
-                                                    </form>
-                                                {% else %}
-                                                    <p>No current ticket available to skip.</p>
-                                                {% endif %}
-                                                  
+                                                <form action="/done/{{ current_ticket[0] if current_ticket else 0 }}" method="post">
+                                                    <button class="buttonish3" role="button">Done</button>
+                                                </form>
+                                                <form action="/skip/{{ current_ticket[0] if current_ticket else 0 }}" method="post">
+                                                    <button class="buttonish3" role="button">Skip</button>
+                                                </form>
                                             </div>
+                                            
                                                     
                                             </div>
                                         </div>
