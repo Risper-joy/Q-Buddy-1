@@ -1,0 +1,110 @@
+:root{
+    --color-primary: #59a646;
+    --color-danger: #b30808;
+    --color-success: #1b9c85;
+    --color-warning: #f7d060;
+    --color-white: #fff;
+    --color-info-dark: #7d8dai;
+    --color-dark: #363949;
+    --color-light: #848bc846;
+    --color-background: #f6f6f9;
+    --color-dark-variant: #677483;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+html{
+    font-size: 18px;
+}
+
+body{
+    width: 100%;
+    font-size: 0.88rem;
+    font-family: sans-serif;
+    user-select: none;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+header .time {
+    font-size: 1rem;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    color: var(--color-dark-variant);
+}
+
+input, select {
+    padding: 0.8rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-light);
+    font-size: 1rem;
+    color: var(--color-dark);
+    width: 100%;
+}
+ img {
+width: 80px;
+height:auto;
+border-radius: 40px;
+display: block;
+margin: 0 auto;
+
+}
+button {
+    padding: 0.8rem;
+    background-color: var(--color-success);
+    color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--color-primary);
+}
