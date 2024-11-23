@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queues</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Queue Records</h1>
+
+    <!-- Table to display queue data -->
+    <table>
+        <thead>
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column }}</th>  <!-- Display column names as headers -->
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for queue in queues %}
+                <tr>
+                    {% for value in queue %}
+                        <td>{{ value }}</td>  <!-- Display each value in the queue record -->
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Link to go back to the home page -->
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

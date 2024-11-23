@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+</head>
+<body>
+    <h2>Staff Dashboard</h2>
+    <p>Current Ticket: {{ current_ticket }}</p>
+    <p>Next Ticket: {{ next_ticket }}</p>
+    <form action="/process_ticket" method="post">
+        <input type="submit" value="Done">
+    </form>
+</body>
+</html>

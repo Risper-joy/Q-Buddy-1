@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q-Buddy Registration</title>
+    <link rel="stylesheet" href="static/css/register.css">
+</head>
+<body>
+    
+
+    <main>
+        <div class="q-buddy-logo">
+            <img src="static\images\background.jpeg">
+            <form action="/submit" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="reg-no">Reg no:</label>
+            <input type="text" id="reg-no" name="reg-no" required>
+
+            <label for="institution">Institution:</label>
+            <select id="institution" name="institution" required>
+         a       <option value="primary">Primary</option>
+                <option value="high school">High School</option>a
+                <option value="University">University</option>
+                <option value="staff">Staff</option>
+                <option value="Civilian">Civilian</option>
+                </select>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    </main>
+
+  
+</body>
+</html>

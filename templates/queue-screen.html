@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\css\queuescreen.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Q-Buddy - Queue List</title>
+</head>
+<body>
+    <div class="container-1">
+        <aside>
+            <div class="index-container">
+                <a class="index-toggle" href="index.html">
+                    <div class="logo">
+                        <h2>Q-<span class="danger">BUDDY</span></h2>
+                    </div>
+                </a> 
+            </div>                  
+            <nav class="sidebar">
+                <a href="staff_dashboard" target="_parent">Dashboard</a>
+                    
+                <a href="view_queues" target="_parent">Queue List</a>
+                        
+                <a href="queue-screen" target="_parent">Queue Screen</a>
+                        
+                <a href="skipped" target="_parent">Skipped</a>
+                        
+                <a href="graphs" target="_parent">Quick Reoprts</a>
+       
+             <a href="" target="_parent"><sub>Q-Buddy for staff</sub></a>
+            </nav>             
+         </aside> 
+        <main>
+            <div class="dash-container">
+                <h2>Queue Screen</h2>
+            </div>
+    
+            <div class="list-content">
+                <section>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="board board-body text-white mb-3">
+                                <div class="list-details">
+                                    <div>
+                                        <div class="status">
+                                            <div class="ticket">
+                                                <h3>Current Ticket Number</h3>
+                                                <h2>{{ current_ticket[1] if current_ticket else "No Tickets" }}</h2> <!-- Display current ticket or No Tickets -->
+                                            </div>
+                                            
+                                            <div class="screen-button">
+                                                <div class="screen-button">
+                                                    <form action="/process_ticket"  method="POST">
+                                                        <button type="submit" class="buttonish3">Done</button>
+                                                    </form> 
+                                                    {% if current_ticket and current_ticket[0] is not none %}
+                                                    <form action="{{ url_for('skip_ticket', id=current_ticket[0]) }}" method="post">
+                                                        <button class="buttonish3" role="button">Skip</button>
+                                                    </form>
+                                                {% else %}
+                                                    <p>No current ticket available to skip.</p>
+                                                {% endif %}
+                                                  
+                                            </div>
+                                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                    <section>
+                        <h3>Next in queue is:</h3>
+                        <h2>{{ next_ticket[0] if next_ticket else "No Next Ticket" }}</h2> <!-- Display next ticket or No Next Ticket -->
+                    </section>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Joining System</title>
+    <link rel="stylesheet" href="/static/css/join_remotely.css">
+    <script>
+        // Function to send the user's location to the server
+        function sendLocationToServer(lat, lon) {
+            fetch('/join_queue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    lat: lat,
+                    lon: lon
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response").innerText = data.message;
+
+                if (data.status === "success") {
+                    // Show the login button if the user can join the queue
+                    document.getElementById("login_button").style.display = "block";
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById("response").innerText = 'Error communicating with the server';
+            });
+        }
+ // Function to get the user's location using the Geolocation API
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+
+                    document.getElementById("coords").innerText = 'Latitude: ${lat}, Longitude: ${lon}'
+
+                    // Send location data to the server
+                    sendLocationToServer(lat, lon);
+                }, function(error) {
+                    document.getElementById("coords").innerText = 'Error: Unable to retrieve location.';
+                });
+            } else {
+                document.getElementById("coords").innerText = 'Geolocation is not supported by this browser.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Queue Joining System</h1>
+
+    <div class="container">
+        <p>Click the button below to check your location and join the queue:</p>
+
+        <button onclick="getLocation()">Get Location and Join Queue</button>
+
+        <p id="coords">Your coordinates will appear here.</p>
+        <p id="response">Server response will appear here.</p>
+
+        <!-- Login Button (Initially hidden) -->
+        <button id="login_button" style="display:none;" onclick="window.location.href='/login_form'">Login</button>
+    </div>
+</body>
+</html>

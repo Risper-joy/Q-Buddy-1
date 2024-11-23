@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Q-Buddy</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to Q-Buddy</h1>
+        <h3>Your virtual queuing assistant</h3>
+        <div class="button-container">
+            <form action="/handle_button_click" method="POST">
+                <button type="submit" name="action" value="register" class="button">Register</button>
+                <button type="submit" name="action" value="join_remotely" class="button">Join Remotely</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

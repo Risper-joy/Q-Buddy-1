@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Q-Buddy - Dashboard</title>
+
+    <style>
+        :root {
+            --color-primary: #59a646;
+            --color-danger: #b30808;
+            --color-success: #1b9c85;
+            --color-warning: #f7d060;
+            --color-white: #fff;
+            --color-info-dark: #7d8dai;
+            --color-dark: #363949;
+            --color-light: #848bc846;
+            --color-background: #f6f6f9;
+            --color-dark-variant: #677483;
+            --card-border-radius: 2rem;
+            --border-radius-1: 0.4rem;
+            --border-radius-2: 1.2rem;
+            --card-padding: 1.8rem;
+            --padding-1: 1.2rem;
+            --box-shadow: 0 2rem 3rem var(--color-light);
+        }
+
+        html {
+            font-size: 18px;
+        }
+
+        body {
+            width: fit-content;
+            height: fit-content;
+            font-size: 0.88rem;
+            font-family: sans-serif;
+            user-select: none;
+            overflow: hidden;
+            color: var(--color-dark);
+            background-color: var(--color-background);
+        }
+
+        * {
+            margin: 0.5vh;
+            padding: 0;
+            outline: 0;
+            appearance: 0;
+            border: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: 0.87rem;
+        }
+
+        p {
+            color: var(--color-dark);
+        }
+
+        .danger {
+            color: var(--color-danger);
+        }
+
+        aside .index-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .index-container {
+            display: grid;
+            width: 100%;
+            margin: 0 auto;
+            gap: 1rem;
+            grid-template-columns: 10rem auto 25rem;
+            color: var(--color-dark-variant);
+        }
+
+        .index-container a {
+            display: flex;
+            align-items: center;
+            color: var(--color-primary);
+            gap: 1rem;
+            position: absolute;
+            margin-left: 0.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .index-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .dash-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vh;
+            margin: 0 auto;
+            gap: 0rem;
+            grid-template-columns: 1rem auto 25rem;
+            color: var(--color-dark-variant);
+            height: 100%;
+        }
+
+        main {
+            margin-top: 1.4rem;
+        }
+
+        main .service-content {
+            height: 100vh;
+            width: 195vh;
+            position: relative;
+        }
+
+        main .service-details {
+            display: flexbox;
+            gap: 1rem;
+        }
+
+        main .service-details > div {
+            background-color: var(--color-white);
+            padding: var(--card-padding);
+            border-radius: var(--card-border-radius);
+            margin-top: 1rem;
+            width: 100%;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 7rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        main .service-details > div:hover {
+            transition: all 0.3s ease;
+        }
+
+        .buttonish {
+            color: var(--color-dark);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-1">
+        <div class="index-container">
+            <aside>
+                <a class="index-toggle" href="index.html">
+                    <div class="logo">
+                        <h2>Q-<span class="danger">BUDDY</span></h2>
+                    </div>
+                </a>
+            </aside>
+        </div>
+        <main>
+            <div class="dash-container">
+                <h2>Choose a Service</h2>
+            </div>
+
+            <div class="service-content">
+                <section>
+                    <div class="row">
+                        <!-- General Consultation -->
+                        <div class="col-md-3">
+                            <div class="service-details">
+                                <div class="service-card" onclick="submitForm('GC')">
+                                    <span class="material-symbols-outlined">clinical_notes</span>
+                                    <h3>Admissions</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dental -->
+                        <div class="col-md-3">
+                            <div class="service-details">
+                                <div class="service-card" onclick="submitForm('DT')">
+                                    <span class="material-symbols-outlined">lda</span>
+                                    <h3>Dental</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency -->
+                        <div class="col-md-3">
+                            <div class="service-details">
+                                <div class="service-card" onclick="submitForm('ER')">
+                                    <span class="material-symbols-outlined">pulse_alert</span>
+                                    <h3>Emergency Room</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Laboratory -->
+                        <div class="col-md-3">
+                            <div class="service-details">
+                                <div class="service-card" onclick="submitForm('LA')">
+                                    <span class="material-symbols-outlined">vaccines</span>
+                                    <h3>Labaratory</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hidden forms to submit on card click -->
+                        <form id="service-form" class="hidden-form" action="/generate_ticket" method="POST">
+                            <input type="hidden" id="office_code" name="office_code" value="">
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Function to set the office code and submit the form
+        function submitForm(officeCode) {
+            document.getElementById('office_code').value = officeCode;
+            document.getElementById('service-form').submit();
+        }
+    </script>
+</body>
+</html>

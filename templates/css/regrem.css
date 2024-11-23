@@ -1,0 +1,84 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define Color Variables */
+:root {
+    --color-primary: #59a646;
+    --color-danger: #b30808;
+    --color-success: #1b9c85;
+    --color-warning: #f7d060;
+    --color-white: #fff;
+    --color-info-dark: #7d8dai;
+    --color-dark: #363949;
+    --color-light: #848bc846;
+    --color-background: #f6f6f9;
+    --color-dark-variant: #677483;
+
+    --box-shadow: 0 2rem 3rem var(--color-light); 
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+}
+
+/* Heading Styles */
+h1 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    margin-top: 20px; /* Add margin to the top */
+}
+
+/* Container Styles */
+.container {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow); /* Apply box shadow */
+    text-align: center;
+}
+
+/* Button Styles */
+button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: var(--color-success); /* Change hover color to success */
+}
+
+/* Coordinates Display Styles */
+#coords {
+    color: var(--color-dark);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Response Message Styles */
+#response {
+    color: var(--color-danger);
+    margin-top: 20px;
+}
