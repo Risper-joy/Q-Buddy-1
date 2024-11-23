@@ -1,0 +1,15 @@
+version: "3.1"
+
+intents:
+  - call_ticket  # The intent that is triggered when the user presses the "Call Next Ticket" button
+
+actions:
+  - action_call_ticket  # The custom action you wrote in actions.py
+
+responses:
+  utter_call_ticket:
+    - buttons:
+        - title: "Call Next Ticket"
+          payload: "/call_ticket"  # This triggers the 'call_ticket' intent
+      text: "Press the button to call the next ticket."
+
