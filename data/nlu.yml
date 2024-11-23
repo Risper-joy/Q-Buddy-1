@@ -1,0 +1,12 @@
+version: "3.1"
+
+nlu:
+  - intent: call_ticket
+    examples: |
+      - call the next ticket
+      - call a ticket
+      - call ticket
+      - please call the next ticket
+      - call a ticket number
+      - trigger the next ticket
+      - next ticket please
